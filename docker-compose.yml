@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  ogle-db:
+    image: postgres:11
+    ports:
+      - "5051:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    env_file:
+      - variables.env
+    networks: 
+      - ogle
+
+networks:
+  ogle:
+    external: true
